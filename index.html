@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Манжеты для ног — WB Кристина · Сезонная динамика</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f4f0;color:#1a1a18;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+  .slide{background:#fff;border-radius:16px;padding:40px 48px;max-width:960px;width:100%;border:0.5px solid rgba(0,0,0,0.08)}
+  .header{display:flex;justify-content:space-between;align-items:start;margin-bottom:28px;padding-bottom:20px;border-bottom:0.5px solid rgba(0,0,0,0.1)}
+  .title{font-size:24px;font-weight:500;color:#1a1a18}
+  .sub{font-size:13px;color:#888780;margin-top:4px}
+  .badge{font-size:11px;background:#FAEEDA;color:#633806;padding:5px 12px;border-radius:5px;font-weight:500;white-space:nowrap}
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:28px}
+  .kpi{background:#f5f4f0;border-radius:8px;padding:14px 16px}
+  .kpi-l{font-size:11px;color:#888780;margin-bottom:3px}
+  .kpi-v{font-size:20px;font-weight:500}
+  .kpi-s{font-size:11px;margin-top:2px;color:#888780}
+  .red{color:#D85A30}.green{color:#1D9E75}
+  .chart-wrap{position:relative;height:320px;margin-bottom:14px}
+  .legend{display:flex;gap:24px;margin-bottom:24px;font-size:12px;color:#888780;flex-wrap:wrap}
+  .leg{display:flex;align-items:center;gap:6px}
+  .leg-line{width:28px;height:3px;border-radius:2px;display:inline-block}
+  .insights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+  .ins{background:#fff;border:0.5px solid rgba(0,0,0,0.1);border-radius:10px;padding:14px 16px}
+  .ins-tag{display:inline-block;font-size:10px;padding:2px 7px;border-radius:3px;font-weight:500;margin-bottom:6px}
+  .t-red{background:#FAECE7;color:#712B13}
+  .t-green{background:#E1F5EE;color:#085041}
+  .t-amber{background:#FAEEDA;color:#633806}
+  .ins-h{font-size:12px;font-weight:500;margin-bottom:5px;color:#1a1a18}
+  .ins-b{font-size:11px;color:#888780;line-height:1.65}
+  .actions{background:#f5f4f0;border-radius:10px;padding:16px 20px;margin-bottom:16px}
+  .act-title{font-size:12px;font-weight:500;margin-bottom:12px;color:#1a1a18}
+  .act-list{display:flex;flex-direction:column;gap:8px}
+  .act{display:flex;gap:10px;align-items:start}
+  .act-num{font-size:10px;background:#FAECE7;color:#712B13;padding:3px 8px;border-radius:3px;font-weight:500;white-space:nowrap;margin-top:1px}
+  .act-num.y{background:#FAEEDA;color:#633806}
+  .act-num.g{background:#E1F5EE;color:#085041}
+  .act-text{font-size:12px;color:#444;line-height:1.6}
+  .foot{font-size:10px;color:#aaa;line-height:1.5}
+  .divider{height:0.5px;background:rgba(0,0,0,0.08);margin:20px 0}
+  @media(max-width:680px){.kpis,.insights{grid-template-columns:1fr}.header{flex-direction:column;gap:10px}}
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="header">
+    <div>
+      <div class="title">Манжеты для ног — WB Кристина</div>
+      <div class="sub">Сезонная динамика · янв 2025 — май 2026 · MPStats API, топ-20 конкурентов</div>
+    </div>
+    <span class="badge">Индекс: апрель 2025 = 100</span>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi">
+      <div class="kpi-l">Рынок апр→май 2025</div>
+      <div class="kpi-v red">−17%</div>
+      <div class="kpi-s">739 → 613 шт (топ-20)</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-l">Кристина апр→май 2025</div>
+      <div class="kpi-v red">−22%</div>
+      <div class="kpi-s">920К → 718К ₽</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-l">Кристина апр→май 2026</div>
+      <div class="kpi-v green">+45%</div>
+      <div class="kpi-s">1,12 → 1,62 млн ₽ · YoY +126%</div>
+    </div>
+  </div>
+
+  <div class="chart-wrap">
+    <canvas id="chart" role="img" aria-label="Три линии: рынок, Кристина, видимость в поиске 2025-2026"></canvas>
+  </div>
+
+  <div class="legend">
+    <div class="leg"><span class="leg-line" style="background:#3266ad"></span>Рынок — топ-20 конкурентов (шт, индекс)</div>
+    <div class="leg"><span class="leg-line" style="background:#1D9E75"></span>Кристина (выручка ₽, индекс)</div>
+    <div class="leg"><span class="leg-line" style="background:#BA7517;border-top:2px dashed #BA7517"></span>Видимость в поиске, % (правая ось)</div>
+  </div>
+
+  <div class="insights">
+    <div class="ins">
+      <span class="ins-tag t-red">Критичный разрыв</span>
+      <div class="ins-h">Окт 2025: рынок пик, Кристина −65%</div>
+      <div class="ins-b">Пока конкуренты на пике (+55% к апрелю), Кристина падает до 35%. Вероятная причина — вымытые остатки летом. Нужна проверка стоков в авг–сен.</div>
+    </div>
+    <div class="ins">
+      <span class="ins-tag t-green">Прорыв 2026</span>
+      <div class="ins-h">Май 2026: +45%, обгоняем рынок</div>
+      <div class="ins-b">Рынок вырос ×3 за год. Кристина выросла ×1,76 к своей базе — захват доли на растущем рынке. Рост устойчив только при поддержке рекламы и остатков.</div>
+    </div>
+    <div class="ins">
+      <span class="ins-tag t-amber">Прогноз июня</span>
+      <div class="ins-h">Июнь — исторически слабее мая</div>
+      <div class="ins-b">В 2025 рынок −3% к маю, Кристина −17%. Без действий: ~1,3–1,4 млн ₽. Настоящий пик — сен–окт. Закупку под пик нужно планировать сейчас.</div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <div class="act-title">Что делать менеджеру</div>
+    <div class="act-list">
+      <div class="act"><span class="act-num">1 · Срочно</span><span class="act-text">Выяснить причину майского роста — позиции, CTR, конверсия в кабинете WB. Что изменилось в апр–мае — рекламный бюджет или позиции в поиске.</span></div>
+      <div class="act"><span class="act-num">2 · Срочно</span><span class="act-text">Проверить остатки. При плане 1,4–1,6 млн в июне — нужно минимум 1 500 шт. Если меньше — дозаказ приоритет.</span></div>
+      <div class="act"><span class="act-num y">3 · Важно</span><span class="act-text">Рассмотреть цену 955 → 1 000–1 030 ₽ (+5–8%). При 1 407 шт/мес это +95 тыс. ₽ прибыли без изменения объёма.</span></div>
+      <div class="act"><span class="act-num y">4 · Важно</span><span class="act-text">Начать планировать закупку под осенний пик (сен–окт). Это ×150% к апрелю по рынку. Производственный цикл → выход из производства в июле.</span></div>
+      <div class="act"><span class="act-num g">5 · Мониторинг</span><span class="act-text">% отказов 14,9% — держать под контролем. Рост выше 16% → проблема с карточкой. Каждый +1% = ~850 ₽/мес потерь на двойной логистике.</span></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    Источники данных: таблица рентабельности WB Кристина (месячные вкладки апр 2025 – май 2026) + MPStats API дневные продажи топ-20 конкурентов «манжеты для ног» (янв 2025 – май 2026) + search_visibility прокси SKU 400588791. Прямая частотность запроса «манжеты для ног» через API недоступна — ручная проверка на mpstats.io → Ключевые слова. Дата отчёта: 11 июня 2026.
+  </div>
+</div>
+
+<script>
+const labels=['Янв 25','Фев 25','Мар 25','Апр 25','Май 25','Июн 25','Июл 25','Авг 25','Сен 25','Окт 25','Ноя 25','Дек 25','Янв 26','Фев 26','Мар 26','Апр 26','Май 26'];
+const compRaw=[1081,738,779,739,613,599,626,736,1111,1143,799,750,1381,1927,1422,1894,2263];
+const kRaw=[447021,614120,849793,919964,718003,598742,565066,560920,471910,321734,434867,667349,910859,980105,1287305,1121494,1621240];
+const visRaw=[null,null,null,null,16.3,14.0,26.3,27.7,25.6,11.1,26.4,27.5,30.3,31.6,27.1,26.1,22.7];
+const base_comp=739, base_k=919964;
+const comp=compRaw.map(v=>Math.round(v/base_comp*100));
+const krist=kRaw.map(v=>Math.round(v/base_k*100));
+
+const vertPlugin={
+  id:'vert',
+  afterDraw(chart){
+    const {ctx,chartArea:{top,bottom},scales:{x}}=chart;
+    const x15=x.getPixelForValue(15);
+    ctx.save();ctx.strokeStyle='rgba(0,0,0,.1)';ctx.setLineDash([4,3]);ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(x15,top);ctx.lineTo(x15,bottom);ctx.stroke();ctx.restore();
+  }
+};
+
+new Chart(document.getElementById('chart'),{
+  type:'line',plugins:[vertPlugin],
+  data:{labels,datasets:[
+    {label:'Рынок топ-20',data:comp,borderColor:'#3266ad',backgroundColor:'rgba(50,102,173,0.07)',fill:true,tension:.35,pointRadius:3,borderWidth:2,yAxisID:'y'},
+    {label:'Кристина',data:krist,borderColor:'#1D9E75',backgroundColor:'rgba(29,158,117,0.07)',fill:true,tension:.35,pointRadius:3,borderWidth:2,yAxisID:'y'},
+    {label:'Видимость %',data:visRaw,borderColor:'#BA7517',borderDash:[5,3],backgroundColor:'transparent',fill:false,tension:.35,pointRadius:3,borderWidth:1.5,spanGaps:false,yAxisID:'y2'}
+  ]},
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    interaction:{mode:'index',intersect:false},
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>{
+      if(c.dataset.label==='Видимость %') return `Видимость: ${c.raw}%`;
+      if(c.dataset.label==='Кристина') return `Кристина: ${c.raw} (апр25=100)`;
+      return `Рынок: ${c.raw} (апр25=100)`;
+    }}}},
+    scales:{
+      x:{ticks:{color:'#888',font:{size:11},maxRotation:45},grid:{color:'rgba(0,0,0,.05)'}},
+      y:{position:'left',title:{display:true,text:'Индекс (апр 25 = 100)',color:'#888',font:{size:10}},ticks:{color:'#888',font:{size:10}},grid:{color:'rgba(0,0,0,.05)'},min:0},
+      y2:{position:'right',title:{display:true,text:'Видимость в поиске, %',color:'#BA7517',font:{size:10}},ticks:{color:'#BA7517',font:{size:10},callback:v=>v+'%'},grid:{display:false},min:0,max:45}
+    }
+  }
+});
+</script>
+</body>
+</html>
