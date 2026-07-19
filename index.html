@@ -41,7 +41,14 @@
   .act-text{font-size:12px;color:#444;line-height:1.6}
   .foot{font-size:10px;color:#aaa;line-height:1.5}
   .divider{height:0.5px;background:rgba(0,0,0,0.08);margin:20px 0}
-  @media(max-width:680px){.kpis,.insights{grid-template-columns:1fr}.header{flex-direction:column;gap:10px}}
+  @media(max-width:680px){
+    body{padding:20px}
+    .slide{padding:32px 36px}
+    .kpis,.insights{grid-template-columns:1fr}
+    .header{flex-direction:column;gap:10px}
+    .act{display:block}
+    .act-num{display:inline-block;margin:0 0 6px 0}
+  }
 </style>
 </head>
 <body>
@@ -49,7 +56,7 @@
   <div class="header">
     <div>
       <div class="title">Манжеты для ног — WB Кристина</div>
-      <div class="sub">Сезонная динамика · янв 2025 — май 2026 · MPStats API, топ-20 конкурентов</div>
+      <div class="sub">Сезонная динамика · апр 2025 — май 2026 · факт из рентабельности + рынок MPStats</div>
     </div>
     <span class="badge">Индекс: апрель 2025 = 100</span>
   </div>
@@ -61,14 +68,14 @@
       <div class="kpi-s">739 → 613 шт (топ-20)</div>
     </div>
     <div class="kpi">
-      <div class="kpi-l">Кристина апр→май 2025</div>
-      <div class="kpi-v red">−22%</div>
-      <div class="kpi-s">920К → 718К ₽</div>
+      <div class="kpi-l">Кристина мар→апр 2026</div>
+      <div class="kpi-v red">−20%</div>
+      <div class="kpi-s">1,52 → 1,21 млн ₽</div>
     </div>
     <div class="kpi">
       <div class="kpi-l">Кристина апр→май 2026</div>
-      <div class="kpi-v green">+45%</div>
-      <div class="kpi-s">1,12 → 1,62 млн ₽ · YoY +126%</div>
+      <div class="kpi-v green">+34%</div>
+      <div class="kpi-s">1,21 → 1,62 млн ₽ · YoY +86%</div>
     </div>
   </div>
 
@@ -85,43 +92,43 @@
   <div class="insights">
     <div class="ins">
       <span class="ins-tag t-red">Критичный разрыв</span>
-      <div class="ins-h">Окт 2025: рынок пик, Кристина −65%</div>
-      <div class="ins-b">Пока конкуренты на пике (+55% к апрелю), Кристина падает до 35%. Вероятная причина — вымытые остатки летом. Нужна проверка стоков в авг–сен.</div>
+      <div class="ins-h">Апр 2026: рынок +33%, Кристина −20%</div>
+      <div class="ins-b">После сильного марта Кристина просела до 1,21 млн ₽, пока рынок резко вырос. Это похоже на потерю доли: нужно проверить остатки, рекламу и позиции за апрель.</div>
     </div>
     <div class="ins">
-      <span class="ins-tag t-green">Прорыв 2026</span>
-      <div class="ins-h">Май 2026: +45%, обгоняем рынок</div>
-      <div class="ins-b">Рынок вырос ×3 за год. Кристина выросла ×1,76 к своей базе — захват доли на растущем рынке. Рост устойчив только при поддержке рекламы и остатков.</div>
+      <span class="ins-tag t-green">Восстановление</span>
+      <div class="ins-h">Май 2026: +34%, быстрее рынка</div>
+      <div class="ins-b">Май частично отыграл апрельский провал: рынок +19%, Кристина +34%. Но год к году рынок вырос сильнее, поэтому долю ещё нужно догонять.</div>
     </div>
     <div class="ins">
       <span class="ins-tag t-amber">Прогноз июня</span>
       <div class="ins-h">Июнь — исторически слабее мая</div>
-      <div class="ins-b">В 2025 рынок −3% к маю, Кристина −17%. Без действий: ~1,3–1,4 млн ₽. Настоящий пик — сен–окт. Закупку под пик нужно планировать сейчас.</div>
+      <div class="ins-b">В 2025 Кристина упала на 24% к маю. Без поддержки база риска — около 1,2–1,3 млн ₽. Для 1,4–1,6 млн ₽ нужны реклама, наличие и контроль отказов.</div>
     </div>
   </div>
 
   <div class="actions">
     <div class="act-title">Что делать менеджеру</div>
     <div class="act-list">
-      <div class="act"><span class="act-num">1 · Срочно</span><span class="act-text">Выяснить причину майского роста — позиции, CTR, конверсия в кабинете WB. Что изменилось в апр–мае — рекламный бюджет или позиции в поиске.</span></div>
+      <div class="act"><span class="act-num">1 · Срочно</span><span class="act-text">Разобрать апрельский провал: остатки, рекламный бюджет, позиции, CTR и конверсию. Рынок в апреле вырос, а категория Кристины просела.</span></div>
       <div class="act"><span class="act-num">2 · Срочно</span><span class="act-text">Проверить остатки. При плане 1,4–1,6 млн в июне — нужно минимум 1 500 шт. Если меньше — дозаказ приоритет.</span></div>
-      <div class="act"><span class="act-num y">3 · Важно</span><span class="act-text">Рассмотреть цену 955 → 1 000–1 030 ₽ (+5–8%). При 1 407 шт/мес это +95 тыс. ₽ прибыли без изменения объёма.</span></div>
-      <div class="act"><span class="act-num y">4 · Важно</span><span class="act-text">Начать планировать закупку под осенний пик (сен–окт). Это ×150% к апрелю по рынку. Производственный цикл → выход из производства в июле.</span></div>
-      <div class="act"><span class="act-num g">5 · Мониторинг</span><span class="act-text">% отказов 14,9% — держать под контролем. Рост выше 16% → проблема с карточкой. Каждый +1% = ~850 ₽/мес потерь на двойной логистике.</span></div>
+      <div class="act"><span class="act-num y">3 · Важно</span><span class="act-text">Не повышать цену до проверки причины апрельской просадки. Сначала убедиться, что майский рост не держится только на рекламе или восстановлении наличия.</span></div>
+      <div class="act"><span class="act-num y">4 · Важно</span><span class="act-text">Готовить закупку под осенний спрос заранее: в 2025 рынок вырос к октябрю на 55% от апреля, а Кристина этот рост не забрала.</span></div>
+      <div class="act"><span class="act-num g">5 · Мониторинг</span><span class="act-text">% отказов: апрель 17,6%, май 14,9%. Если снова выше 16% — проверять ожидания в карточке, комплектацию и качество.</span></div>
     </div>
   </div>
 
   <div class="foot">
-    Источники данных: таблица рентабельности WB Кристина (месячные вкладки апр 2025 – май 2026) + MPStats API дневные продажи топ-20 конкурентов «манжеты для ног» (янв 2025 – май 2026) + search_visibility прокси SKU 400588791. Прямая частотность запроса «манжеты для ног» через API недоступна — ручная проверка на mpstats.io → Ключевые слова. Дата отчёта: 11 июня 2026.
+    Источники данных: таблица рентабельности WB Кристина (месячные листы апр 2025 – апр 2026; май 2026 из сводного анализа 17.11/23) + MPStats API дневные продажи топ-20 конкурентов «манжеты для ног» + search_visibility прокси SKU 400588791. Прямая частотность запроса через API недоступна. Пересборка: 11 июня 2026.
   </div>
 </div>
 
 <script>
-const labels=['Янв 25','Фев 25','Мар 25','Апр 25','Май 25','Июн 25','Июл 25','Авг 25','Сен 25','Окт 25','Ноя 25','Дек 25','Янв 26','Фев 26','Мар 26','Апр 26','Май 26'];
-const compRaw=[1081,738,779,739,613,599,626,736,1111,1143,799,750,1381,1927,1422,1894,2263];
-const kRaw=[447021,614120,849793,919964,718003,598742,565066,560920,471910,321734,434867,667349,910859,980105,1287305,1121494,1621240];
-const visRaw=[null,null,null,null,16.3,14.0,26.3,27.7,25.6,11.1,26.4,27.5,30.3,31.6,27.1,26.1,22.7];
-const base_comp=739, base_k=919964;
+const labels=['Апр 25','Май 25','Июн 25','Июл 25','Авг 25','Сен 25','Окт 25','Ноя 25','Дек 25','Янв 26','Фев 26','Мар 26','Апр 26','Май 26'];
+const compRaw=[739,613,599,626,736,1111,1143,799,750,1381,1927,1422,1894,2263];
+const kRaw=[1129670,872434,659366,671049,617690,724752,701580,620342,864213,1117801,1273035,1518594,1207541,1621240];
+const visRaw=[null,16.3,14.0,26.3,27.7,25.6,11.1,26.4,27.5,30.3,31.6,27.1,26.1,22.7];
+const base_comp=739, base_k=1129670;
 const comp=compRaw.map(v=>Math.round(v/base_comp*100));
 const krist=kRaw.map(v=>Math.round(v/base_k*100));
 
@@ -129,7 +136,7 @@ const vertPlugin={
   id:'vert',
   afterDraw(chart){
     const {ctx,chartArea:{top,bottom},scales:{x}}=chart;
-    const x15=x.getPixelForValue(15);
+    const x15=x.getPixelForValue(12);
     ctx.save();ctx.strokeStyle='rgba(0,0,0,.1)';ctx.setLineDash([4,3]);ctx.lineWidth=1;
     ctx.beginPath();ctx.moveTo(x15,top);ctx.lineTo(x15,bottom);ctx.stroke();ctx.restore();
   }
