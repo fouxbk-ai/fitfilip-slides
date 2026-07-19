@@ -1,0 +1,15 @@
+name: Задача
+description: Обновление FITFILIP Slides
+title: "[Task]: "
+body:
+  - type: textarea
+    id: outcome
+    attributes: {label: Результат, description: Что должно измениться?}
+    validations: {required: true}
+  - type: textarea
+    id: acceptance
+    attributes: {label: Критерии готовности, description: Проверяемые условия.}
+    validations: {required: true}
+  - type: textarea
+    id: sources
+    attributes: {label: Источники данных, description: Откуда взяты цифры и на какую дату?}
